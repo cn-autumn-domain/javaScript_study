@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function student(name,age) {
+        this.name = name
+        this.age = age
+    }
+    var stu = new student("asly",29)
+    //with语句，在with作用域中，可以任意使用指定对象的属性name、age
+    with (stu) {
+        alert(name+"---"+age)
+    }
+
+    for(s in stu){
+        document.write(s+"---"+stu[s])
+        document.write("<br>")
+    }
+</script>
+</body>
+</html>

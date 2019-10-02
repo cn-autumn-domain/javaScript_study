@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/vue.js"></script>
+    <style>
+        /*显示或隐藏的过滤效果*/
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 1s;
+        }
+        /*隐藏时的样式*/
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+        }
+
+        .move-enter-active {
+            transition: all 1s;
+        }
+        .move-leave-active {
+            transition: all 3s;
+        }
+
+        .move-enter, .move-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+            transform: translateX(20px);//向左移动
+        }
+    </style>
+</head>
+<body>
+<div id="test1">
+    <button @click="isShow=!isShow">toggle</button>
+    <transition name="fade">
+        <p v-show="isShow">hello</p>
+    </transition>
+</div>
+
+<div id="test2">
+    <button @click="isShow=!isShow">toggle</button>
+    <transition name="move">
+        <p v-show="isShow">hello</p>
+    </transition>
+</div>
+<script>
+    new Vue({
+        el: "#test1",
+        data: {
+            isShow: true
+        }
+    });
+
+    new Vue({
+        el: "#test2",
+        data: {
+            isShow: true
+        }
+    });
+
+
+</script>
+</body>
+</html>

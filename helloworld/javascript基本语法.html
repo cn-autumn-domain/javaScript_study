@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        table{
+            width: 600px;
+            border-collapse: collapse;
+        }
+        table td{
+            border: #0066CC 1px solid;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    /*
+    * 多行注释
+    * */
+    //单行注释
+    /* alert("与君初相识，犹如故人归") //用来在页面弹出一条警示消息
+     document.write("浅喜似苍狗，深爱如长风") //用来在页面体中输入语句
+     console.log("我与春风皆过客，你携秋水揽星河") //用来在控制台输出一个日志
+ */
+    /* var x = 'abc'
+      switch (x) {
+          case 'abc':
+              alert('a')
+              break
+          case 'aa':
+              alert('c')
+              break
+          default:
+              alert('c')
+              break
+      }*/
+    /*var sum = ""
+    for (var i = 0; i < 4; i++) {
+        if (i == 4)
+            sum = sum + "i=" + i
+        else
+            sum = sum + "i=" + i + ","
+    }
+    document.write("<font color='red'>"+sum+"</font>")*/
+    document.write("<table>")
+    for (var x = 1; x <= 9; x++) {
+        document.write("<tr>")
+        for (var y = 1; y <= x; y++) {
+            document.write("<td>" + y + "*" + x + "=" + y * x + "</td>")
+        }
+        document.write("</tr>")
+    }
+
+
+    document.write("</table>")
+</script>
+</body>
+</html>

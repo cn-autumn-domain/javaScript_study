@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--javascript中数组是可变长度的-->
+<script>
+    var arr = new Array()
+    arr = [3, 23, 55, 13, 87, 54, 63]
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                var temp = arr[i]
+                arr[i] = arr[j]
+                arr[j] = temp
+            }
+        }
+    }
+    document.write(arr)
+</script>
+</body>
+</html>

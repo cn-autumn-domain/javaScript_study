@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .aClass {
+            color: red;
+        }
+        .bClass {
+            color: #0066CC;
+        }
+    </style>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <h2 :class="{aClass:isA,bClass:isB}">与君初相识，犹如故人归</h2>
+
+        <h2>浅喜似苍狗，深爱如长风</h2>
+
+        <button @click="update">update</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                isA: true,
+                isB: false
+            },
+            methods: {
+                update(){
+                    this.isA = ~this.isA;
+                    this.isB = ~this.isB;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

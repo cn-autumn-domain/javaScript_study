@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <h2>v-for遍历数组</h2>
+    <ul>
+        <li v-for="(p,index) in persons" :key="index">
+            {{index}}---{{p.name}}---{{p.age}}
+            ----<button @click="deleteP(index)">delete</button>
+            ----<button @click="updateP(index,{name:'bb',age:'18'})">update</button>
+        </li>
+    </ul>
+
+    <h2>v-for遍历对象</h2>
+    <ul>
+        <li v-for="(value,key) in persons[1]" :key="key">
+            {{value}}---{{key}}
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            persons: [//vue值监视了persons本身的改变，没有监视数组内部数据的改变
+                {name:'tom',age:'18'},
+                {name:'jack',age:'21'},
+                {name:'rose',age:'14'},
+                {name:'john',age:'33'}
+            ]
+        },
+        methods: {
+            deleteP(index){
+                //删除persons中指定index的p
+                this.persons.splice(index,1);
+            },
+            updateP(index,newP){
+                //this.persons[index] = newP;//数组内部发生了变化，但是无法在界面上更新这些变化
+                this.persons.splice(index,1,newP);//使用splice方法，可以完成替换的操作，同时会在页面上更新这些变化
+            }
+        }
+    })
+</script>
+</body>
+</html>

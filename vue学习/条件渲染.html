@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <!--v-if是将内存中的元素移除-->
+    <p v-if="ok">success</p>
+    <p v-else>fail</p>
+
+    <!--v-show只是隐藏了元素，实际上元素还在内存中-->
+    <p v-show="ok">like</p>
+    <p v-show="!ok">dislike</p>
+    <button @click="ok=!ok">update</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            ok: false
+        }
+    })
+</script>
+</body>
+</html>

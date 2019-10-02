@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="test">
+    <button @click="destroyVm">destroy vue</button>
+    <p v-show="isShow">人是一根有思想的芦苇</p>
+</div>
+
+<!--
+生命周期方法中常用的是mounted()和beforeDestroy() 方法
+-->
+<script>
+    const vm = new Vue({
+        el: "#test",
+        data: {
+            isShow: true
+        },
+        //初始化阶段
+        beforeCreate(){
+            console.log("beforeCreate()");
+        },
+        created() {
+            console.log("created()");
+        },
+        beforeMount() {
+            console.log("beforeMount()");
+        },
+        mounted() {//初始化显示之后立即调用（1次）
+            this.intervalId = setInterval(() => {
+                console.log("-------------");
+                this.isShow = !this.isShow;
+            }, 1000)
+        },
+        //更新阶段
+        beforeUpdate() {
+            console.log("beforeUpdate()");
+        },
+        updated() {
+            console.log("updated()");
+        },
+        //死亡阶段
+        beforeDestroy() {// 死亡之前调用（1次）
+            console.log("beforeDestroy()");
+            //清除定时器
+            clearInterval(this.intervalId);
+        },
+        destroyed(){
+            console.log("destroyed()");
+        },
+        methods: {
+            destroyVm() {
+                //销毁vm
+                this.$destroy();
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
